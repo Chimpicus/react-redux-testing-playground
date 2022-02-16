@@ -1,5 +1,5 @@
 //Fizz Buzz built with typescript that is also an Imediately Invoked Function Expression (IIFE)
-(function () {
+var fizzbuzz = (function () {
     var output = [];
     var i = null;
     for (i = 1; i <= 100; i++) {
@@ -17,5 +17,7 @@
         }
     }
     // eslint-disable-next-line
+    return output;
     console.log(output);
 })();
+module.exports = fizzbuzz;
