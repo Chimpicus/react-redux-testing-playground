@@ -3,46 +3,27 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
+import counterReducer from "./reducers/counter";
+import loggedReducer from "./reducers/isLogged";
+import { Provider } from "react-redux";
 
-//ACTION --> GIVES INSTRUCTION TO REDUCER
-const increment = () => {
-  return {
-    type: "INCREMENT"
-  };
-};
-
-const decrement = () => {
-  return {
-    type: "DECREMENT"
-  };
-};
-
-//REDUCER --> UPDATES STATE BASED ON INSTRUCTIONS FROM ACTION
-const counter = (state = 0, action) => {
-  switch (action.type) {
-    case "INCREMENT":
-      return state + 1;
-
-    case "DECREMENT":
-      return state - 1;
-  }
-};
-
-//STORE --> GLOBALIZED STATE
-let store = createStore(counter);
-
-//DISPLAY IN CONSOLE
+const allReducers = combineReducers({
+  counter: counterReducer,
+  isLogged: loggedReducer
+});
 //eslint-disable-next-line
-store.subscribe(() => console.log(store.getState()));
+const store = createStore(allReducers,
+  //eslint-disable-next-line
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-//DISPATCH --> GIVES THE ACTION TO REDUCER
-store.dispatch(increment());
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   // eslint-disable-next-line
   document.getElementById("root")
 );
