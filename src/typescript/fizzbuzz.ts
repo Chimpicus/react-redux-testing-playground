@@ -14,9 +14,10 @@ const fizzbuzz = (() => {
       output.push("Buzz");
     } else { output.push(i); }
   }
-  return output;
   // eslint-disable-next-line
   console.log(output);
+  return output;
+
 })();
 // eslint-disable-next-line
 module.exports = fizzbuzz;
