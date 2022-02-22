@@ -11,3 +11,10 @@ export const decrement = (nr) => {
     payload: nr
   };
 };
+
+
+export const permission = () => {
+  return {
+    type: "SIGN_IN"
+  };
+};

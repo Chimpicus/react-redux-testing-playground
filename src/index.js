@@ -3,15 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createStore, combineReducers } from "redux";
-import counterReducer from "./reducers/counter";
-import loggedReducer from "./reducers/isLogged";
+import { createStore } from "redux";
+import allReducers from "./reducers";
 import { Provider } from "react-redux";
 
-const allReducers = combineReducers({
-  counter: counterReducer,
-  isLogged: loggedReducer
-});
+
 //eslint-disable-next-line
 const store = createStore(allReducers,
   //eslint-disable-next-line
