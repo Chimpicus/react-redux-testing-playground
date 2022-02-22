@@ -15,8 +15,8 @@ function App() {
         <div className="app">
           <button onClick={() => dispatch(permission())}>Log out</button>
           <h1>Count {counter}</h1>
-          <button onClick={() => dispatch(decrement(2))}>-</button>
-          <button onClick={() => dispatch(increment(2))}>+</button>
+          <button onClick={() => dispatch(decrement(1))}>-</button>
+          <button onClick={() => dispatch(increment(1))}>+</button>
         </div>
       }
     </div>
