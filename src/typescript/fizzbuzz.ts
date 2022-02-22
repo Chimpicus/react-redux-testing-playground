@@ -2,7 +2,7 @@
 
 const fizzbuzz = (() => {
   const output = [];
-  let i: number = null;
+  let i: number;
   for (i = 1; i <= 100; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
       output.push("FizzBuzz");
@@ -14,9 +14,9 @@ const fizzbuzz = (() => {
       output.push("Buzz");
     } else { output.push(i); }
   }
-  // eslint-disable-next-line
   return output;
+  // eslint-disable-next-line
   console.log(output);
 })();
-
+// eslint-disable-next-line
 module.exports = fizzbuzz;
